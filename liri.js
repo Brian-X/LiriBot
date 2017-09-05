@@ -2,9 +2,9 @@
 
 var Twitter = require('twitter');
 
-var twitterKeys = require("./key.js");
+var keys = require("./keys.js");
 
-var client = new Twitter(twitterKeys);
+var client = new Twitter(keys.twitter);
 
 var action = process.argv[2];
 console.log(action);
@@ -25,9 +25,9 @@ switch(action) {
 function fireTwitter() {
 
     var params = {screen_name: 'XYN HA'};
-    client.get('statuses/user_timeline', params, function(error, tweets, response) {
+    client.get('statuses/user_timeline', params, function(error, tweet, response) {
     if (!error) {
-    console.log(tweets.text);
+    console.log(tweet);
     }
     });
 
