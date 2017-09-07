@@ -7,6 +7,9 @@ var keys = require("./keys.js");
 var client = new Twitter(keys.twitter);
 
 // var Spotify = require('spotify');
+var spotify = new Spotify(keys.Spotify);
+
+var Spotify = require('node-spotify-api');
 
 var request = require('request');
 
@@ -45,14 +48,14 @@ function fireTwitter() {
 
 }
 
-function fireSpotify() {
+function fireSpotify(query) {
 
-    var Spotify = require('node-spotify-api');
     
-    var spotify = new Spotify({
-        id: "29fb2fd2029143759230ba09d92d6e7a",
-        secret: "4dc803c1e1474401a959c4555a4328ed"
-    });
+    
+    // var spotify = new Spotify({
+    //     id: "29fb2fd2029143759230ba09d92d6e7a",
+    //     secret: "4dc803c1e1474401a959c4555a4328ed"
+    // });
     
     
     spotify.search({type: 'track', query: "December"}, function(err, data) {
