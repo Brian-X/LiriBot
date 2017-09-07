@@ -9,14 +9,23 @@ var Spotify = require('node-spotify-api');
 // var Spotify = require('spotify');
 var spotify = new Spotify(keys.Spotify);
 
-
-
 var request = require('request');
 
 var fs = require('fs');
 
+var userInput = "";
+
+var nodeArgv = process.argv;
 var action = process.argv[2];
 console.log(action);
+
+for (var i = 3; i < nodeArgv.length; i++){
+    if(i > 3 && i < nodeArgv.length){
+        userInput = userInput + "+" + nodeArgv[i];
+    } else {
+        userInput = userInput + nodeArgv[i];
+    }
+}
 
 switch(action) {
     case "my-tweets": 
@@ -58,7 +67,7 @@ function fireSpotify(query) {
     // });
     
     
-    spotify.search({type: 'track', query: "December"}, function(err, data) {
+    spotify.search({type: 'track', query: userInput}, function(err, data) {
         if (!err) {
             // return console.log('Error occurred: ' + err);
             for (var i = 0; i < data.tracks.items.length; i++) {
