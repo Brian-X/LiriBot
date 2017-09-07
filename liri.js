@@ -1,15 +1,15 @@
 
+var keys = require("./keys.js");
 
 var Twitter = require('twitter');
 
-var keys = require("./keys.js");
-
 var client = new Twitter(keys.twitter);
 
+var Spotify = require('node-spotify-api');
 // var Spotify = require('spotify');
 var spotify = new Spotify(keys.Spotify);
 
-var Spotify = require('node-spotify-api');
+
 
 var request = require('request');
 
@@ -25,7 +25,7 @@ switch(action) {
     break;
     case "spotify-this-song":
     case "s":
-    fireSpotify();
+    fireSpotify("Gel");
     break;
 
     default: console.log("Please enter a command: my-tweets, spotify-this-song, movie-this, do-what-it-says")
