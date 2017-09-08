@@ -49,7 +49,7 @@ function fireTwitter() {
         // }
         for (var i = 0; i < tweets.length; i++) {
             console.log(tweets[i].text);
-            if (i == 9){
+            if (i == 19){
                 break;
             }
         }
