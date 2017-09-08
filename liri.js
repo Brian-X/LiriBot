@@ -104,10 +104,8 @@ function fireSpotify(query) {
 // var omdb = require('omdb');
 
 function fireOMDB() {
-
-    var OMDBurl = "http://www.omdbapi.com/?t=" + userInput + "&y=&plot=short&apikey=40e9cece";
         
-    request(OMDBurl, function (err, response, body) {
+    request("http://www.omdbapi.com/?t=" + userInput + "&y=&plot=short&apikey=40e9cece", function (err, response, body) {
         // If there were no errors and the response code was 200 (i.e. the request was successful)...
         if (!err && response.statusCode === 200) {
             var body = JSON.parse(body);
